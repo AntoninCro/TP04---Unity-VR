@@ -1,0 +1,75 @@
+# =============================================================
+# Unity — dossiers regenerés automatiquement par l'éditeur
+# =============================================================
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Les .meta ne doivent JAMAIS être ignorés tant que l'asset l'accompagne
+!/[Aa]ssets/**/*.meta
+
+# Plugin Rider auto-généré
+[Aa]ssets/Plugins/Editor/JetBrains*
+
+# =============================================================
+# IDE / solutions générées par Unity
+# =============================================================
+.vs/
+.vsconfig
+.idea/
+.gradle/
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.tmp
+
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# =============================================================
+# Builds et exports
+# =============================================================
+*.apk
+*.aab
+*.app
+*.ipa
+# .unitypackage exportés à la racine du projet — ceux livrés à
+# l'intérieur de Assets/ restent versionnés (sinon leur .meta
+# se retrouve orphelin et Unity le supprime à chaque import)
+/*.unitypackage
+
+# Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Rapports de crash
+sysinfo.txt
+crashlytics-build.properties
+
+# =============================================================
+# Système d'exploitation
+# =============================================================
+.DS_Store
+Thumbs.db
+desktop.ini
