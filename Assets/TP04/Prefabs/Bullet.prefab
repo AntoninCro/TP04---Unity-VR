@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Lifetime: 5
+  m_Damage: 1
   m_ImpactEffectPrefab: {fileID: 0}
   m_ImpactEffectLifetime: 2
   m_DestroyOnImpact: 1

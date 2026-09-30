@@ -1,9 +1,11 @@
+using TP04.Survival;
 using UnityEngine;
 
 namespace TP04
 {
     /// <summary>
-    /// Projectile fired by <see cref="PistolShooter"/>. Despawns on impact or after a delay.
+    /// Projectile fired by <see cref="PistolShooter"/>. Damages anything that implements
+    /// <see cref="IDamageable"/>, then despawns on impact or after a delay.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
     public class Bullet : MonoBehaviour
@@ -11,6 +13,10 @@ namespace TP04
         [SerializeField]
         [Tooltip("Seconds before the bullet despawns on its own, 0 to keep it forever")]
         float m_Lifetime = 5f;
+
+        [SerializeField]
+        [Tooltip("Damage dealt to a robot. A robot has 2 health points by default")]
+        float m_Damage = 1f;
 
         [SerializeField]
         [Tooltip("Optional effect spawned at the impact point, e.g. a Particle System")]
@@ -32,9 +38,14 @@ namespace TP04
 
         void OnCollisionEnter(Collision collision)
         {
+            ContactPoint contact = collision.GetContact(0);
+
+            var target = collision.collider.GetComponentInParent<IDamageable>();
+            if (target != null && !target.isDead)
+                target.TakeDamage(m_Damage, contact.point, contact.normal);
+
             if (m_ImpactEffectPrefab != null)
             {
-                ContactPoint contact = collision.GetContact(0);
                 GameObject effect = Instantiate(m_ImpactEffectPrefab, contact.point, Quaternion.LookRotation(contact.normal));
                 Destroy(effect, m_ImpactEffectLifetime);
             }
